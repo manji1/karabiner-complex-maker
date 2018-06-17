@@ -1,0 +1,51 @@
+extends layout
+
+block content
+    script(src='/javascripts/index.js' defer)
+    .container-fluid
+        h1= title
+        .form-group
+            label Title
+            input#title.form-control
+        .form-group
+            label Description
+            .form-inline
+                input#description.form-control.col-sm-10
+                a#addManipulator.text-white(href='#addManipulatorForm')
+                    button.btn.btn-primary Add
+        label Manipulators
+        table.table
+            thead
+                tr
+                th(scope='col') description
+                th(scope='col') from
+                th(scope='col') from optional
+                th(scope='col') to
+                th(scope='col') to alone
+            tbody#manipulators
+        div(style='display:none')
+            #addManipulatorForm.container-fluid
+                #inputKeyArea.form-group
+                    label Input Key
+                    input#inputKey.key-field.form-control(readonly)
+                #toKeyArea.form-group
+                    label To Key With Any Key
+                    .form-inline
+                        input.to-key.key-field.form-control.col-sm-10(readonly)
+                        button.add-to-key.btn.btn-primary.col-sm-1 Add
+                        button.clear-key.btn.btn-light.col-sm-1 Clear
+                #toKeyIfAloneArea.form-group
+                    label To Key If Alone
+                    .form-inline
+                        input.to-key-alone.key-field.form-control.col-sm-10(readonly)
+                        button.add-to-key-alone.btn.btn-primary.col-sm-1 Add
+                        button.clear-key.btn.btn-light.col-sm-1 Clear
+                div(style='height: 1em')
+                .form-inline
+                    button#clearAll.btn.btn-light.col-sm-1 Clear All
+                    .col-sm-4
+                    button#doneAdd.btn.btn-info.col-sm-2 Done
+                    .col-sm-4
+                    button#cancelAdd.btn.btn-dark.col-sm-1 Cancel
+        button#getResult.btn.btn-primary Get
+        textarea#result.form-control(rows=20)
