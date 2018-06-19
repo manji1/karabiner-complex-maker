@@ -5,6 +5,9 @@ block content
     .container-fluid
         h1= title
         .form-group
+            //button#loadExistingSetting.btn.btn-primary Load Existing Setting
+            input#fileRead(type='file')
+        .form-group
             label Title
             input#title.form-control
         .form-group
@@ -22,6 +25,8 @@ block content
                 th(scope='col') from optional
                 th(scope='col') to
                 th(scope='col') to alone
+                th(scope='col')
+                th(scope='col')
             tbody#manipulators
         div(style='display:none')
             #addManipulatorForm.container-fluid
